@@ -6,29 +6,29 @@ const ease = n => 1-Math.pow(1-clamp(n),3);
 // Original conceptual architecture; this illustration is not a project render.
 function sceneMarkup(prefix){
   const floors=Array.from({length:5},(_,i)=>`<g class="scene-floor" data-floor="${i}" transform="translate(0 ${-i*42})">
-    <path d="M350 373L530 408L530 450L350 415Z" fill="#f4f9fc" stroke="#8db2c8" stroke-width=".8"/>
-    <path d="M530 408L650 348L650 390L530 450Z" fill="#91bdd7" stroke="#6e9fbf" stroke-width=".8"/>
-    <path d="M350 373L470 313L650 348L530 408Z" fill="#daeaf4" stroke="#8db2c8" stroke-width=".8"/>
-    <path d="M362 385L394 391L394 414L362 408ZM405 393L437 399L437 422L405 416ZM448 401L480 407L480 430L448 424ZM491 409L520 415L520 438L491 432Z" fill="#2c6386"/>
-    <path d="M541 411L565 399L565 422L541 434ZM575 394L600 381L600 404L575 417ZM610 376L636 363L636 386L610 399Z" fill="#24597b"/>
-    <path d="M343 409L530 445L657 382L657 389L530 453L343 417Z" fill="#fff" stroke="#90b6cd" stroke-width=".8"/>
-    <path d="M351 403L530 438L650 378M360 405v10m30-4v10m30-4v10m30-4v10m30-4v10m30-4v10m42-10v10m25-23v10m25-22v10m25-23v10m25-23v10" fill="none" stroke="#a1bdce" stroke-width=".9"/>
+    <path d="M350 373L530 408L530 450L350 415Z" fill="#f5f9fd" stroke="#93bde0" stroke-width=".8"/>
+    <path d="M530 408L650 348L650 390L530 450Z" fill="#8fc2ea" stroke="#6aa3d3" stroke-width=".8"/>
+    <path d="M350 373L470 313L650 348L530 408Z" fill="#e7effc" stroke="#93bde0" stroke-width=".8"/>
+    <path d="M362 385L394 391L394 414L362 408ZM405 393L437 399L437 422L405 416ZM448 401L480 407L480 430L448 424ZM491 409L520 415L520 438L491 432Z" fill="#3777b2"/>
+    <path d="M541 411L565 399L565 422L541 434ZM575 394L600 381L600 404L575 417ZM610 376L636 363L636 386L610 399Z" fill="#2a6aa8"/>
+    <path d="M343 409L530 445L657 382L657 389L530 453L343 417Z" fill="#fff" stroke="#93bde0" stroke-width=".8"/>
+    <path d="M351 403L530 438L650 378M360 405v10m30-4v10m30-4v10m30-4v10m30-4v10m30-4v10m42-10v10m25-23v10m25-22v10m25-23v10m25-23v10" fill="none" stroke="#a6c8e6" stroke-width=".9"/>
   </g>`).join('');
   const lattice=Array.from({length:8},(_,i)=>`M216 ${130+i*36}l27 36m-27 0l27-36`).join('');
   const jib=Array.from({length:14},(_,i)=>`M${140+i*38} 107l19-19 19 19`).join('');
   return `<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <defs><radialGradient id="${prefix}-halo"><stop stop-color="#a5d7f3" stop-opacity=".42"/><stop offset="1" stop-color="#a5d7f3" stop-opacity="0"/></radialGradient><linearGradient id="${prefix}-ground" x2="1" y2="1"><stop stop-color="#c7deec"/><stop offset="1" stop-color="#eff7fb"/></linearGradient></defs>
+    <defs><radialGradient id="${prefix}-halo"><stop stop-color="#69b0e4" stop-opacity=".42"/><stop offset="1" stop-color="#69b0e4" stop-opacity="0"/></radialGradient><linearGradient id="${prefix}-ground" x2="1" y2="1"><stop stop-color="#cfe3f5"/><stop offset="1" stop-color="#f1f7fd"/></linearGradient></defs>
     <ellipse cx="475" cy="285" rx="350" ry="250" fill="url(#${prefix}-halo)"/>
     <g class="scene-outline"><path d="M70 400L440 215L830 290M70 440L440 255L830 330M70 480L440 295L830 370M70 520L440 335L830 410M210 555L580 370L830 420M160 340L650 500M230 300L720 460M300 270L790 430"/></g>
-    <path d="M280 430L475 332L716 397L521 502Z" fill="url(#${prefix}-ground)" stroke="#b4d0e0"/>
-    <path d="M280 430L521 502L716 397V404L521 510L280 438Z" fill="#afcbdc"/>
-    <ellipse cx="485" cy="451" rx="143" ry="27" fill="#3a7396" opacity=".12"/>
+    <path d="M280 430L475 332L716 397L521 502Z" fill="url(#${prefix}-ground)" stroke="#b5d3ec"/>
+    <path d="M280 430L521 502L716 397V404L521 510L280 438Z" fill="#aecde9"/>
+    <ellipse cx="485" cy="451" rx="143" ry="27" fill="#2a6aa8" opacity=".12"/>
     <g class="scene-outline"><path d="M350 415V164L470 104L650 139V390M350 164L530 199L650 139M530 199V450"/></g>
-    <g class="scene-crane" fill="none" stroke="#317ba5" stroke-width="2"><path d="M216 420V107H243V427M216 130H243M216 166H243M216 202H243M216 238H243M216 274H243M216 310H243M216 346H243M216 382H243"/><path d="${lattice}" stroke-width="1.2"/><path d="M140 107H675V88H140ZM230 88V48L140 88M230 48L590 88"/><path d="${jib}" stroke-width="1.1"/><path d="M204 424L252 433L271 423L223 415Z" fill="#c4d9e6"/><path d="M139 108H181V128H139Z" fill="#1a506f"/><path d="M245 109H268V129H245Z" fill="#bddff3"/></g>
+    <g class="scene-crane" fill="none" stroke="#3777b2" stroke-width="2"><path d="M216 420V107H243V427M216 130H243M216 166H243M216 202H243M216 238H243M216 274H243M216 310H243M216 346H243M216 382H243"/><path d="${lattice}" stroke-width="1.2"/><path d="M140 107H675V88H140ZM230 88V48L140 88M230 48L590 88"/><path d="${jib}" stroke-width="1.1"/><path d="M204 424L252 433L271 423L223 415Z" fill="#c8dff2"/><path d="M139 108H181V128H139Z" fill="#2a6aa8"/><path d="M245 109H268V129H245Z" fill="#bfe0f8"/></g>
     <g class="scene-building">${floors}</g>
-    <g class="scene-rig" fill="none" stroke="#3b7494" stroke-width="1.4"><path class="cable" d="M500 107V300"/><path class="slings" d="M500 300L420 355M500 300L590 360"/><rect class="trolley" x="490" y="101" width="20" height="10" rx="2" fill="#1e5b7f"/></g>
+    <g class="scene-rig" fill="none" stroke="#3777b2" stroke-width="1.4"><path class="cable" d="M500 107V300"/><path class="slings" d="M500 300L420 355M500 300L590 360"/><rect class="trolley" x="490" y="101" width="20" height="10" rx="2" fill="#2a6aa8"/></g>
     <g class="scene-detail"><path d="M330 445L510 483M330 439v12m180 26v12M681 395L681 176m-5 219h12m-12-219h12"/></g>
-    <g fill="#4c7c98" font-family="Arial,sans-serif" font-size="8" letter-spacing="1.5"><text x="355" y="486">EDIL FORTE / VISIONE IN COSTRUZIONE</text><text x="697" y="290" transform="rotate(-90 697 290)">DAL SEGNO ALLO SPAZIO</text></g></svg>`;
+    <g fill="#5a7590" font-family="Arial,sans-serif" font-size="8" letter-spacing="1.5"><text x="355" y="486">EDIL FORTE / VISIONE IN COSTRUZIONE</text><text x="697" y="290" transform="rotate(-90 697 290)">DAL SEGNO ALLO SPAZIO</text></g></svg>`;
 }
 function createScene(container,prefix){
   container.innerHTML=sceneMarkup(prefix);
